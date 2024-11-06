@@ -1,5 +1,6 @@
 package com.ty.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,17 @@ public class EmployeeService {
 			return false;
 		}
 		return false;
+	}
+
+	public List<Employee> getAll() {
+		return employeeRepository.findAll();
+	}
+
+	public Employee getById(Integer eid) {
+		return employeeRepository.findById(eid).get();
+	}
+	
+	public void update(Employee employee) {
+		employeeRepository.save(employee);
 	}
 }
